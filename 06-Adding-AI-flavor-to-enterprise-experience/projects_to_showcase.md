@@ -56,6 +56,8 @@ Implement policy enforcement: PII redaction, toxicity filters, topic restriction
 
 Design coordinated agents for retrieval, reasoning, and tool orchestration. Demonstrate agent collaboration via LangGraph, CrewAI, or AutoGen with clear separation of concerns.
 
+📄 [View design document](../projects/multi-agent-system/design.md)
+
 **Skills demonstrated:** Distributed system design, agent state management, multi-agent coordination
 
 ---
