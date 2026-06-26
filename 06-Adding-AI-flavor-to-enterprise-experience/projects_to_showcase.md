@@ -8,6 +8,8 @@ Portfolio-ready projects bridging enterprise experience to AI system development
 
 Build a FastAPI service that routes user queries to multiple LLM providers. Add caching, latency monitoring, and conversation history storage.
 
+📄 [View design document](../projects/llm-workflow-api/design.md)
+
 **Skills demonstrated:** API design, provider abstraction, async Python, LLM integration
 
 ---
