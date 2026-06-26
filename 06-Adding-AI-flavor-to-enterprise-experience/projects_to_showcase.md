@@ -82,6 +82,8 @@ Build a pipeline to detect model drift in production. Compare embedding distribu
 
 Create an LLM-powered reporting tool that generates executive summaries. Input: raw logs or metrics. Output: narrative insights with visualizations and recommendations.
 
+📄 [View design document](../projects/ai-analytics-assistant/design.md)
+
 **Skills demonstrated:** LLM application development, data summarization, executive communication, reporting automation
 
 ---
