@@ -100,4 +100,6 @@ Take an existing enterprise workflow (ticketing, HR, CRM, or procurement). Add a
 
 Build a Git-based pipeline that version-controls prompts, runs eval suites on new prompt versions, gates deploys on quality thresholds, and supports canary releases with automatic rollback.
 
+📄 [View design document](../projects/prompt-deployment-pipeline/design.md)
+
 **Skills demonstrated:** Prompt engineering, MLOps, CI/CD for LLMs, A/B testing for prompts
