@@ -74,6 +74,8 @@ Replace keyword-based search with embedding-based semantic search. Integrate wit
 
 Build a pipeline to detect model drift in production. Compare embedding distributions over time, track accuracy against a held-out eval set, and alert on degradation.
 
+📄 [View design document](../projects/ai-drift-detection/design.md)
+
 **Skills demonstrated:** ML monitoring, statistical drift detection, embedding distribution analysis, alerting
 
 ---
