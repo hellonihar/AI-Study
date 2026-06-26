@@ -46,6 +46,8 @@ Deploy LLM workflows with Docker + Kubernetes. Add Prometheus/Grafana dashboards
 
 Implement policy enforcement: PII redaction, toxicity filters, topic restrictions, and output validation. Showcase compliance workflows (GDPR, HIPAA, SOC 2) with AI outputs.
 
+📄 [View design document](../projects/ai-guardrails/design.md)
+
 **Skills demonstrated:** Content safety, compliance engineering, guard model integration, audit trails
 
 ---
