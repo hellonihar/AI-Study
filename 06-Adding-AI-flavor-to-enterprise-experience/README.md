@@ -20,3 +20,7 @@ This section takes each traditional enterprise role and shows:
 - [Data pipelines → RAG & retrieval](05-Data-pipelines-to-RAG-retrieval/README.md) — ETL and data warehousing become vector ingestion and retrieval
 - [Enterprise governance → AI guardrails](06-Enterprise-governance-to-AI-guardrails/README.md) — Compliance and risk management become content safety and alignment
 - [Stakeholder management → AI scoping](07-Stakeholder-management-to-AI-scoping/README.md) — Requirements gathering becomes AI solution feasibility and scoping
+
+## Projects to Showcase
+
+See [projects_to_showcase.md](projects_to_showcase.md) for portfolio-ready project ideas that map each enterprise skill to a concrete AI implementation.
