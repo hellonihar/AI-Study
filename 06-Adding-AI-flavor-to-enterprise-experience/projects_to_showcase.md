@@ -64,6 +64,8 @@ Design coordinated agents for retrieval, reasoning, and tool orchestration. Demo
 
 Replace keyword-based search with embedding-based semantic search. Integrate with an enterprise knowledge base (SharePoint, Confluence, or custom document store).
 
+📄 [View design document](../projects/semantic-search/design.md)
+
 **Skills demonstrated:** Search architecture, embedding models, hybrid search (vector + keyword), relevance tuning
 
 ---
