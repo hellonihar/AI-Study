@@ -18,6 +18,8 @@ Build a FastAPI service that routes user queries to multiple LLM providers. Add 
 
 Extend an ETL pipeline with embeddings and a vector database (Pinecone, Qdrant, Milvus). Enable document Q&A with retrieval-augmented generation.
 
+📄 [View design document](../projects/rag-system/design.md)
+
 **Skills demonstrated:** ETL architecture, embeddings, vector search, RAG pipeline design
 
 ---
