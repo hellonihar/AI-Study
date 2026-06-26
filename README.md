@@ -33,3 +33,12 @@ A comprehensive study guide covering AI and Machine Learning foundations, modern
 - [API-based AI architectures](05-Building-and-Deploying-AI-Applications/02-API-based-AI-architectures/README.md)
 - [FastAPI deployment for AI applications](05-Building-and-Deploying-AI-Applications/03-FastAPI-deployment-for-AI-applications/README.md)
 - [Production considerations for AI systems](05-Building-and-Deploying-AI-Applications/04-Production-considerations-for-AI-systems/README.md)
+
+### 6. Adding AI Flavor to Enterprise Experience
+- [Architecture → AI system design](06-Adding-AI-flavor-to-enterprise-experience/01-Architecture-to-AI-system-design/README.md)
+- [Backend → LLM workflows](06-Adding-AI-flavor-to-enterprise-experience/02-Backend-to-LLM-workflows/README.md)
+- [QA/testing → AI evals](06-Adding-AI-flavor-to-enterprise-experience/03-QA-testing-to-AI-evals/README.md)
+- [DevOps → AI observability & deployment](06-Adding-AI-flavor-to-enterprise-experience/04-DevOps-to-AI-observability/README.md)
+- [Data pipelines → RAG & retrieval](06-Adding-AI-flavor-to-enterprise-experience/05-Data-pipelines-to-RAG-retrieval/README.md)
+- [Enterprise governance → AI guardrails](06-Adding-AI-flavor-to-enterprise-experience/06-Enterprise-governance-to-AI-guardrails/README.md)
+- [Stakeholder management → AI solution scoping](06-Adding-AI-flavor-to-enterprise-experience/07-Stakeholder-management-to-AI-scoping/README.md)
