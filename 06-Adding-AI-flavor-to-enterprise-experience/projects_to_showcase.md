@@ -28,6 +28,8 @@ Extend an ETL pipeline with embeddings and a vector database (Pinecone, Qdrant, 
 
 Create automated evals for LLM outputs — precision, recall, hallucination detection, faithfulness scoring. Integrate with pytest or CI/CD pipelines.
 
+📄 [View design document](../projects/ai-evaluation-suite/design.md)
+
 **Skills demonstrated:** Test automation, LLM-as-judge, metric design, CI/CD integration
 
 ---
