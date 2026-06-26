@@ -804,6 +804,157 @@ Cancel a running task (sets cancellation flag, agents check before each step).
 
 ---
 
+## Production Deployment
+
+### Request Flow (Sequence)
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant LB as Load Balancer
+    participant API as FastAPI
+    participant Redis as Redis Bus
+    participant PG as PostgreSQL
+    participant Sup as Supervisor
+    participant Planner
+    participant Retriever
+    participant Researcher
+    participant Critic
+    participant Writer
+
+    User->>LB: POST /tasks
+    LB->>API: Route request
+    API->>PG: Create task record
+    API->>Sup: Delegate task
+
+    Sup->>Sup: Parse & plan task
+    Sup->>Redis: pub task.planner
+    Redis->>Planner: sub task.planner
+    Planner-->>Redis: pub result.planner
+    Redis-->>Sup: sub result.planner
+
+    par Parallel retrieval
+        Sup->>Redis: pub task.retriever
+        Redis->>Retriever: sub
+        Retriever->>VectorDB: RAG search
+        VectorDB-->>Retriever: results
+        Retriever-->>Redis: pub result.retriever
+    and Parallel research
+        Sup->>Redis: pub task.researcher
+        Redis->>Researcher: sub
+        Researcher->>Web: API call
+        Web-->>Researcher: content
+        Researcher-->>Redis: pub result.researcher
+    end
+    Redis-->>Sup: collect results
+
+    Sup->>Redis: pub task.critic
+    Redis->>Critic: sub
+    Critic-->>Redis: pub result.critic
+    Redis-->>Sup: sub
+
+    Sup->>Redis: pub task.writer
+    Redis->>Writer: sub
+    Writer-->>Redis: pub result.writer
+    Redis-->>Sup: sub
+
+    Sup-->>API: Merged result
+    API->>PG: Update task status
+    API-->>User: Response
+```
+
+### Deployment Topology
+
+```mermaid
+graph TB
+    subgraph "Kubernetes Cluster"
+        subgraph "Ingress"
+            IG[Nginx Ingress]
+        end
+
+        subgraph "API Pods"
+            API1[FastAPI<br/>replica 1]
+            API2[FastAPI<br/>replica 2]
+            API3[FastAPI<br/>replica N]
+        end
+
+        subgraph "Worker Pods"
+            W1[Agent Worker<br/>pool: supervisor]
+            W2[Agent Worker<br/>pool: retriever]
+            W3[Agent Worker<br/>pool: researcher]
+            W4[Agent Worker<br/>pool: critic]
+            W5[Agent Worker<br/>pool: writer]
+            W6[Agent Worker<br/>pool: tool_executor]
+        end
+
+        subgraph "Data Layer"
+            R[(Redis<br/>PubSub + Cache)]
+            P[(PostgreSQL<br/>Checkpoints + Tasks)]
+            V[(Qdrant<br/>Vector Store)]
+        end
+
+        subgraph "Monitoring"
+            PR[Prometheus]
+            GR[Grafana]
+            AL[Alertmanager]
+            PG[PagerDuty]
+        end
+    end
+
+    subgraph "External"
+        LLM[OpenAI / Anthropic / Ollama]
+        WEB[Web APIs<br/>Search, Tools]
+    end
+
+    User --> IG
+    IG --> API1 & API2 & API3
+    API1 & API2 & API3 --> R
+    API1 & API2 & API3 --> P
+    API1 & API2 & API3 --> W1 & W2 & W3 & W4 & W5 & W6
+    W1 & W2 & W3 & W4 & W5 & W6 --> LLM
+    W2 --> V
+    W3 --> WEB
+    W1 & W2 & W3 & W4 & W5 & W6 --> R
+    W1 & W2 & W3 & W4 & W5 & W6 --> P
+
+    API1 & API2 & API3 --> PR
+    W1 & W2 & W3 & W4 & W5 & W6 --> PR
+    PR --> GR
+    PR --> AL --> PG
+
+    classDef api fill:#e1f5fe,stroke:#0288d1
+    classDef worker fill:#fff3e0,stroke:#f57c00
+    classDef data fill:#e8f5e9,stroke:#388e3c
+    classDef monitor fill:#f3e5f5,stroke:#7b1fa2
+    class API1,API2,API3 api
+    class W1,W2,W3,W4,W5,W6 worker
+    class R,P,V data
+    class PR,GR,AL,PG monitor
+```
+
+### Scaling Strategy
+
+| Component | Scaling Unit | Trigger | Max |
+|---|---|---|---|
+| API | Horizontal pod (per replica) | CPU > 70%, request latency > 500ms p50 | 20 replicas |
+| Agent Workers | Per-agent-type pod pool | Queue depth per agent type | 10 per type |
+| Redis | Cluster mode | Memory > 75%, throughput > 10K msg/s | 6 shards |
+| PostgreSQL | Read replicas | Connection pool > 80% | 3 replicas |
+| Qdrant | Horizontal pod | Vector count > 1M per shard | Auto-sharding |
+
+### Canary Strategy for Agent Updates
+
+```
+1. Deploy new agent version to 1 pod
+2. Route 5% of tasks to new agent
+3. Monitor: latency, faithfulness, error rate for 10 min
+4. If all metrics stable → scale to 50%
+5. Monitor for 30 min → full rollout
+6. On regression → rollback single agent type
+```
+
+---
+
 ## Tech Stack
 
 | Component | Choice | Justification |
