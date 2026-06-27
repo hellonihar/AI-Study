@@ -4,7 +4,7 @@
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
-| 1 | ER physicians spend 40% of time on clinical documentation | Ambient AI scribe — real-time STT + medical entity extraction + structured note generation | FHIR integration, HIPAA compliance audit, provider workflow observation, 5-hospital phased rollout, note accuracy SLA |
+| 1 | ER physicians spend 40% of time on clinical documentation | See **[MedScribe](../projects/industry-solutions/healthcare/medscribe/readiness-assessment.md)** — Ambient AI scribe: real-time STT + medical entity extraction + structured note generation | FHIR integration, HIPAA compliance audit, provider workflow observation, 5-hospital phased rollout, note accuracy SLA |
 | 2 | Radiology backlog of 48h+ for non-emergency scans | Triage AI — prioritize abnormal findings via vision model on PACS feed | PACS API integration, radiologist-in-loop validation protocol, FDA 510(k) regulatory pathway, turnaround time tracking |
 | 3 | Patients miss 30% of follow-up appointments | Predictive no-show model + automated SMS outreach with conversational scheduling | CRM integration, opt-out compliance, A/B test on message timing, ROI tracked as filled slots recovered |
 | 4 | ICU alarms generate 200+ false alerts per nurse per shift | ML fusion model — aggregate vital sign streams, suppress non-actionable alarms, escalate true positives | Monitor protocol redesign, nursing workflow mapping, before/after alarm fatigue study, alarm-to-action time metric |
