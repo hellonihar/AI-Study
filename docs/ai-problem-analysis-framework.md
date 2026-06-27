@@ -375,42 +375,39 @@ Where:
 
 ```mermaid
 flowchart TD
-    A[Business Problem Identified] --> B[Decompose into atomic sub-problems]
+    A[Business Problem] --> B[Decompose into sub-problems]
     B --> C[For each sub-problem]
-    C --> D[Can this be solved with<br>rules / formulas / lookup?]
+    C --> D{Rules or formulas work?}
     D -->|Yes| E[Implement rules. Done.]
-    D -->|No| F[Does the problem involve<br>unstructured data / ambiguity?]
-    F -->|No| G[Can classical ML solve it<br>(tabular data, <10K examples)?]
+    D -->|No| F{Unstructured data?}
+
     F -->|Yes| H[Run AI Suitability Test]
+    F -->|No| G{Classical ML viable?}
     G -->|Yes| H
-    G -->|No| I[Consider if problem is<br>well-defined enough for AI]
+    G -->|No| I{Well-defined enough?}
     I -->|Yes| H
-    I -->|No| J[Simplify or redefine<br>the problem scope]
+    I -->|No| J[Redefine problem scope]
     J --> B
 
     H --> K{AI Suitability Score}
-    K -->|8-10: Strong| L[Assess organizational readiness]
-    K -->|5-7: Moderate| M[Consider hybrid approach]
-    K -->|0-4: Weak| N[Use non-AI approach]
+    K -->|8 to 10| L[Assess readiness]
+    K -->|5 to 7| M[Consider hybrid]
+    K -->|0 to 4| N[Non-AI approach]
 
-    M --> O[Identify which sub-problems<br>need AI vs. rules]
+    M --> O[Separate AI vs rules steps]
     O --> L
 
     L --> P{Readiness Score}
-    P -->|6-8: Strong| Q[Full custom AI solution]
-    P -->|3-5: Moderate| R[Managed AI service / API]
-    P -->|0-2: Weak| S[Improve readiness first<br>or buy packaged solution]
+    P -->|6 to 8| Q[Build custom AI]
+    P -->|3 to 5| R[Managed AI service]
+    P -->|0 to 2| S[Improve readiness first]
 
-    Q --> T[Run Cost-Benefit Analysis]
+    Q --> T{Run Cost-Benefit Analysis}
     R --> T
-    S --> U[Create readiness roadmap;<br>revisit in 6 months]
+    S --> U[Revisit in 6 months]
 
-    T --> V{ROI > 50%?}
-    V -->|Yes| W[Proceed to Solution Scoping<br>→ ai-solution-scoping-examples.md]
-    V -->|No| X[Explore cheaper approaches<br>or deprioritize]
-
-    M -.-> Y[Hybrid Example: Claims AI<br>Rules for doc classification,<br>AI for extraction+fraud+settlement]
-    R -.-> Z[Managed Example: FactoryRL<br>Rules for physics model,<br>self-hosted ML for optimization]
+    T -->|ROI over 50%| W[Proceed to scoping]
+    T -->|ROI under 50%| X[Deprioritize or simplify]
 ```
 
 ---
