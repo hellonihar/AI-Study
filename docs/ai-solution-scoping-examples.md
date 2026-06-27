@@ -4,7 +4,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 
 ---
 
-## Healthcare (8)
+## Healthcare (8) — [details](solution-scopes/healthcare.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -17,7 +17,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 7 | Medical coding backlog: 1,200 charts/day per coder | Multi-label ICD-10 classifier from clinical notes with human review queue for low-confidence predictions | EHR integration, coding workflow redesign, coder productivity baseline, audit trail for compliance, confidence threshold tuning |
 | 8 | Clinical trial enrollment takes 9 months to find eligible patients | Patient-trial matching — NLP reads eligibility criteria + patient records, ranks matches by inclusion/exclusion probability | EHR data lake integration, IRB compliance, patient consent workflow, enrollment time reduction target, matching precision audit |
 
-## Financial Services (8)
+## Financial Services (8) — [details](solution-scopes/financial-services.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -30,7 +30,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 15 | Merchant underwriting for payment processing takes 2 weeks | ML risk model on merchant application data + external signals (social media, credit bureau) with automated decision | Payment platform integration, bureau API feed, model fairness audit per ECOA, decision turnaround target |
 | 16 | Trade surveillance generates 5,000 false alerts per day | ML alert prioritization model — scores alerts by likelihood of actual market abuse, groups related alerts | Trade capture system integration, alert workflow redesign, analyst review efficiency target, FINRA compliance mapping |
 
-## Retail & E-Commerce (7)
+## Retail & E-Commerce (7) — [details](solution-scopes/retail-ecommerce.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -42,7 +42,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 22 | Customer reviews contain actionable feedback but no one reads them at scale | LLM that summarizes review corpus by product, extracts common complaints, suggests improvements | Review ingestion pipeline, product team dashboard, sentiment trend tracking, actionable insight precision target |
 | 23 | Visual search feature built but adoption < 2% of users | Improve visual search with style-aware embeddings + attribute filters + similar-item gallery | Mobile SDK integration, camera UX redesign, A/B test on add-to-cart rate, query understanding accuracy audit |
 
-## Manufacturing & Industrial (7)
+## Manufacturing & Industrial (7) — [details](solution-scopes/manufacturing-industrial.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -54,7 +54,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 29 | Operator training for new production line takes 6 months | AR-enabled AI training assistant — recognizes operator actions, overlays instructions, provides real-time feedback | AR headset integration (HoloLens/Quest), training content management, competency assessment workflow, time-to-competency target |
 | 30 | Supplier quality audit reports take 40h to compile per audit | LLM reads audit questionnaires + photos + past reports, generates draft report with risk scoring | Supplier portal integration, audit checklist database, risk scoring calibration, audit cycle time target |
 
-## Legal (5)
+## Legal (5) — [details](solution-scopes/legal.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -64,7 +64,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 34 | M&A due diligence reads 10K+ documents in 2 weeks | Multi-agent: extractor reads each doc, risk classifier flags issues, deal breaker detector highlights must-address items | VDR integration, issue taxonomy config, deal team dashboard, automated risk report generation, coverage SLA |
 | 35 | Compliance training completion < 60% across firm | Adaptive learning LLM — generates personalized training scenarios from actual compliance incidents, quizzes, and tracks understanding | LMS integration, incident database connection, quiz pass rate target, audit readiness score |
 
-## Education (5)
+## Education (5) — [details](solution-scopes/education.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -74,7 +74,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 39 | Admissions committee reads 15K applications with 6 staff | Application triage: extracts GPA, activities, essays — ranks by institutional priorities, flags inconsistencies | CRM integration (Slate/Salesforce), admissions rubric config, fairness audit per demographic, staff time per decision target |
 | 40 | Parent-teacher conference prep takes teachers 3h each | LLM compiles student portfolio: grades, attendance, behavior notes, growth areas, and talking points for each parent | SIS integration, teacher review queue, parent portal integration, teacher prep time target |
 
-## Logistics & Transportation (5)
+## Logistics & Transportation (5) — [details](solution-scopes/logistics-transportation.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -84,7 +84,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 44 | Freight rate procurement: carrier bids collected via spreadsheet | AI freight marketplace — matches loads to carriers by historical performance, predicts market rate, recommends optimal bid | TMS integration, carrier portal, rate prediction calibration, procurement cycle time target, cost savings tracking |
 | 45 | Fleet maintenance costs 15% above industry average | Predictive diagnostics — fuse OBD data + service history + driver behavior, recommend maintenance at optimal mileage | Telematics API integration (Samsara/Geotab), shop dispatch workflow, maintenance deferral audit, cost per mile target |
 
-## Energy & Utilities (5)
+## Energy & Utilities (5) — [details](solution-scopes/energy-utilities.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -94,7 +94,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 49 | Grid transformer lifespan prediction unreliable — early failures cause blackouts | Temporal fusion transformer on dissolved gas analysis + load + temperature data — predicts failure N months ahead | DGA sensor data pipeline, maintenance planning integration, replacement cost optimization, TPM analysis |
 | 50 | Customer solar panel inquiries handled manually, 4-day response | AI energy advisor — reads utility bill, simulates solar ROI with site-specific irradiance, generates proposal | Utility billing API, satellite irradiance data feed, proposal generation, lead conversion baseline |
 
-## Insurance (5)
+## Insurance (5) — [details](solution-scopes/insurance.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -104,7 +104,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 54 | Life insurance policy lapse prediction — 15% lapse rate before year 2 | ML model on policyholder behavior (payment patterns, engagement) flags high-lapse accounts for retention | Policy admin system integration, retention campaign workflow, A/B test on intervention types, lapse rate impact |
 | 55 | Catastrophe exposure aggregation takes 2 weeks annually | Automated exposure aggregation: reads policy data, geocodes properties, overlays catastrophe model zones, computes aggregated risk | Policy system integration, risk modeling platform API, automated report generation, aggregation time baseline |
 
-## Media & Entertainment (5)
+## Media & Entertainment (5) — [details](solution-scopes/media-entertainment.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -114,7 +114,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 59 | Music catalog metadata inconsistent across 50M tracks | LLM reads track + album + artist data, normalizes genres, fills missing metadata, detects duplicates with confidence scores | Rights management database integration, metadata quality baseline, editorial review queue, correction acceptance rate |
 | 60 | Live sports highlight generation takes 4 editors per game | CV + audio analysis detects key plays (goals, cards, celebrations), auto-generates clips with captions and slow-motion | Broadcast feed ingestion, editing tool integration, clip acceptance rate from editors, production time target |
 
-## Government & Public Sector (5)
+## Government & Public Sector (5) — [details](solution-scopes/government-public-sector.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -124,7 +124,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 64 | Emergency response dispatch: call-to-resource assignment takes 8 min | Geospatial ML + NLP — parses emergency call, locates nearest available responder, suggests optimal route accounting for traffic | CAD integration, GIS integration, responder device integration, dispatch time target, coverage simulation |
 | 65 | Public comment analysis for regulation — 50K comments, 30 days to process | Multi-stage: topic clustering → sentiment analysis → novel argument detection → summary report by topic | Comment portal integration, analysis methodology public disclosure, comment categorization schema, report accuracy audit |
 
-## Real Estate (5)
+## Real Estate (5) — [details](solution-scopes/real-estate.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -134,7 +134,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 69 | Facility maintenance requests: 500/day, triaged manually | Classifier reads request text, assigns priority + trade category + estimated effort hours, routes to correct crew | CMMS integration (ServiceChannel/FM:Systems), priority calibration via SLA, routing accuracy SLA, response time target |
 | 70 | Property showing scheduling: 5 back-and-forth calls per showing | AI scheduling assistant — reads agent + buyer + seller availability, suggests times, handles reschedules automatically | CRM integration, calendar API, SMS-based confirmation, scheduling time target, conversion tracking |
 
-## Agriculture (4)
+## Agriculture (4) — [details](solution-scopes/agriculture.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -143,7 +143,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 73 | Irrigation water usage 40% above optimal | Soil moisture sensor + weather forecast + crop-stage model → recommends irrigation schedule per zone | IoT sensor network plan, irrigation controller API, water savings tracking, yield impact audit |
 | 74 | Produce grading at packing facility: human graders miss 10% of defects | Hyperspectral imaging + vision model — grades by size, color, defect type at line speed | Conveyor integration, grade standard config UI, grading consistency audit, throughput vs. human baseline |
 
-## Hospitality & Travel (4)
+## Hospitality & Travel (4) — [details](solution-scopes/hospitality-travel.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -152,7 +152,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 77 | Kitchen food waste: 12% of purchased ingredients discarded | ML waste predictor — forecasts dish demand per day by season/day-of-week/events, suggests prep quantities | POS integration, inventory system integration, waste tracking audit, cost savings target, menu optimization suggestions |
 | 78 | Flight crew scheduling: 6 million monthly pairings optimized manually | Constraint satisfaction solver + RL — generates crew schedules minimizing cost while satisfying FAA rest rules, union agreements, and preferences | Scheduling system integration, constraint model config UI, schedule quality metrics, cost reduction target |
 
-## Telecommunications (4)
+## Telecommunications (4) — [details](solution-scopes/telecommunications.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -161,7 +161,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 81 | Field service dispatch: tech with wrong skills sent 20% of time | AI dispatch optimizer — matches trouble ticket to tech by skill cert, location, parts availability, and predicted fix time | WFM integration, inventory system integration, engineer ETA accuracy, first-time-fix rate target |
 | 82 | Call center agent turnover 40%/year — new agents take 6 months to reach competency | Agent assist: real-time transcript analysis, suggests next-best-action from knowledge base, summarizes call post-handle | CRM integration, KB integration, agent QA score tracking, time-to-competency target, handle time analytics |
 
-## Human Resources (4)
+## Human Resources (4) — [details](solution-scopes/human-resources.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -170,7 +170,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 85 | Employee engagement survey: 20% response, 3-month analysis lag | Real-time sentiment from Slack/email text + pulse survey → detects sentiment changes at team level, suggests manager actions | Slack/email API integration, privacy review (aggregate only), manager dashboard, response rate target, eNPS tracking |
 | 86 | Career development: employees don't know what role to aim for next | Internal mobility recommender — reads skills + experience + interests + career lattice, recommends next roles and skill gaps | HRIS integration, career lattice model, learning platform integration, internal mobility rate target |
 
-## Cybersecurity (4)
+## Cybersecurity (4) — [details](solution-scopes/cybersecurity.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -179,7 +179,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 89 | Insider threat detection: data exfiltration discovered months later | User behavior analytics — models normal access patterns by role, flags deviations (unusual download volume, after-hours access, sensitive data queries) | DLP integration, IDP integration, privacy guardrails for employee monitoring, investigation workflow, time-to-detection target |
 | 90 | Incident report writing: analyst spends 2h per report post-resolution | LLM ingests incident timeline + chat logs + tool outputs, generates structured report with timeline, root cause, and recommendations | SOAR integration, case management integration, report quality audit, report writing time target |
 
-## Construction & Engineering (4)
+## Construction & Engineering (4) — [details](solution-scopes/construction-engineering.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -188,7 +188,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 93 | Change order impact analysis takes 5 days — decisions made with incomplete data | NLP on change order text → extracts scope, schedule, cost impact; cross-references with contract and historical changes | Project controls integration, contract repository connection, impact assessment accuracy audit, change order cycle time target |
 | 94 | Blueprint-to-BIM reconciliation: discrepancies found during construction costing $500K | Vision model reads blueprints + laser scan data, flags discrepancies between design and as-built, quantifies impact | BIM 360 integration, laser scan data pipeline, discrepancy report generation, rework cost reduction target |
 
-## Aerospace & Defense (3)
+## Aerospace & Defense (3) — [details](solution-scopes/aerospace-defense.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
@@ -196,7 +196,7 @@ A reference catalog of successfully scoped AI solutions across 20 industries. Ea
 | 96 | Aircraft maintenance log review: engineers read 500 pages per inspection | LLM reads maintenance logs + service bulletins + past inspection data, flags items requiring attention, generates summary | Maintenance system integration (Traxx/Ammex), log entry taxonomy, engineer review workflow, review time target |
 | 97 | Fuel burn: 3% above optimal across fleet | ML flight profile optimizer — recommends optimal altitude, speed, and routing adjustments accounting for weather + load + ATC constraints | Flight planning system integration, fuel data pipeline, pilot advisory workflow, fuel savings tracking, carbon reduction metric |
 
-## Automotive (3)
+## Automotive (3) — [details](solution-scopes/automotive.md)
 
 | # | Problem | AI Solution | Scope Deliverables |
 |---|---|---|---|
