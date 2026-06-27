@@ -42,3 +42,13 @@ A comprehensive study guide covering AI and Machine Learning foundations, modern
 - [Data pipelines → RAG & retrieval](06-Adding-AI-flavor-to-enterprise-experience/05-Data-pipelines-to-RAG-retrieval/README.md)
 - [Enterprise governance → AI guardrails](06-Adding-AI-flavor-to-enterprise-experience/06-Enterprise-governance-to-AI-guardrails/README.md)
 - [Stakeholder management → AI solution scoping](06-Adding-AI-flavor-to-enterprise-experience/07-Stakeholder-management-to-AI-scoping/README.md)
+
+### Project Designs & Reference Documents
+
+- [Projects directory — AI implementation blueprints](projects/) — 10 end-to-end project designs (RAG, multi-agent, guardrails, evaluation, etc.) with architecture diagrams, data models, API contracts, design decisions, and phased implementation plans. Each project is a deployable system designed for real-world constraints.
+- [Industry-specific solutions](projects/industry-solutions/) — 20 industry verticals with tailored AI solutions. Detailed designs include:
+  - [ClaimPulse](projects/industry-solutions/insurance/claimpulse/design.md): AI claims processing (document AI → fraud detection → LLM settlement). CPU-only, PHI-compliant, 50-state DOI config.
+  - [FactoryRL](projects/industry-solutions/manufacturing-industrial/factoryrl/design.md): Factory energy optimization via MPC + LightGBM. CPU-only, safety-constrained, no neural networks.
+- [AI solution scoping — 100 industry examples](docs/ai-solution-scoping-examples.md) — A reference catalog of successfully scoped AI solutions across 20 industries. Each entry follows a consistent pattern: concrete business problem → specific AI solution → scope deliverables (integrations, compliance, workflow changes, success metrics).
+- [Industry scope detail files](docs/solution-scopes/) — Individual files for each of the 20 industries, expanding the master catalog examples with self-contained reference pages.
+- [AI SDLC layers summary](docs/ai-sdlc-layers-summary.md) — A 9-layer reference architecture spanning data, model, evaluation, deployment, monitoring, and governance. Links each layer to the relevant sections and projects in this repository.
