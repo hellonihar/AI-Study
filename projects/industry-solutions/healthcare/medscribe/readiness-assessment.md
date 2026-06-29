@@ -18,9 +18,17 @@
 
 ---
 
-## 2. Dimension-by-Dimension Assessment
+## 2. The Business Problem
 
-### 2.1 Data Maturity — Assessment: L2 (Collected)
+Every shift, ER physicians spend nearly half their time — 4 out of every 10 hours — doing something that has nothing to do with patient care: typing up clinical notes. After a 12-hour shift of treating patients, they sit down to reconstruct every encounter from memory, dictating or typing what happened, what they found, what they ordered, and what they recommended. Multiply that across every physician, every shift, every day, and the numbers are staggering. A single physician loses roughly $200,000 a year in potential clinical revenue to paperwork. Across a multi-hospital health system, that adds up to tens of millions in lost throughput, longer wait times for patients, and a direct line to the physician burnout crisis that is driving experienced doctors out of the profession.
+
+MedScribe puts an ambient listener in the exam room — a deceptively simple idea that transforms how clinical documentation happens. The physician practices medicine as usual: talking to the patient, asking questions, performing exams, explaining the plan. MedScribe listens, extracts the clinical signal from the conversation, and drafts a complete, structured note in real time — history of present illness, review of systems, physical exam findings, assessment, and plan. The physician reviews the draft, makes any corrections, and signs it. Total documentation time drops from hours to minutes. The physician goes home after their shift instead of staying late to type. The hospital sees higher throughput, shorter wait times, and physicians who actually want to keep practicing. The technology exists, the vendors are proven, and the ROI is immediate — the only question is which vendor to partner with, not whether to build it.
+
+---
+
+## 3. Dimension-by-Dimension Assessment
+
+### 3.1 Data Maturity — Assessment: L2 (Collected)
 
 **Evidence**:
 - Structured clinical data exists in EHR (diagnoses, medications, labs, vitals)
@@ -33,7 +41,7 @@
 
 **Gap**: Audio data collection is the binding constraint for custom model training. Even for API-based solutions, pilot deployment is required to measure accuracy on local accents, clinical terminology, and ambient noise conditions.
 
-### 2.2 ML Infrastructure — Assessment: L1 (Ad-hoc / None)
+### 3.2 ML Infrastructure — Assessment: L1 (Ad-hoc / None)
 
 **Evidence**:
 - No model registry, no experiment tracking
@@ -47,7 +55,7 @@
 
 **Gap**: Any AI solution will be API-based (vendor-managed) or require a new HIPAA-compliant cloud environment. On-premise hosting of LLMs is cost-prohibitive at this maturity level.
 
-### 2.3 Team Capability — Assessment: Low (No ML Experience)
+### 3.3 Team Capability — Assessment: Low (No ML Experience)
 
 **Evidence**:
 - Hospital IT team manages EHR, networking, and end-user devices
@@ -60,7 +68,7 @@
 
 **Gap**: Partnership with a healthcare AI vendor (Nuance/DAX, Augmedix, Abridge) or a managed AI service is the only realistic path. In-house development is not viable at this readiness level.
 
-### 2.4 Compliance & Governance — Assessment: Weak (High Barriers)
+### 3.4 Compliance & Governance — Assessment: Weak (High Barriers)
 
 **Evidence**:
 - **HIPAA** — all patient encounter audio is PHI. Requires BAA with any vendor processing audio or generating notes.
@@ -75,7 +83,7 @@
 
 ---
 
-## 3. Readiness Scoring
+## 4. Readiness Scoring
 
 | Dimension | Score | Rationale |
 |---|---|---|
@@ -96,7 +104,7 @@
 
 ---
 
-## 4. Findings
+## 5. Findings
 
 ### Strength: Clinical Need Is Undeniable
 Physician burnout from documentation is a well-documented crisis. 40% of clinical time spent on notes means every physician loses ~$200K/year in opportunity cost. The ROI case is the strongest in this catalog — hospitals lose more by not adopting than by adopting a suboptimal solution.
@@ -112,7 +120,7 @@ Physicians are the most critical users and the most resistant to workflow change
 
 ---
 
-## 5. Conclusion
+## 6. Conclusion
 
 | Decision | Rationale |
 |---|---|
@@ -132,7 +140,7 @@ The only AI-specific work required is **vendor evaluation and integration**. No 
 
 ---
 
-## 6. Action Items
+## 7. Action Items
 
 | # | Action | Owner | Timeline |
 |---|---|---|---|
