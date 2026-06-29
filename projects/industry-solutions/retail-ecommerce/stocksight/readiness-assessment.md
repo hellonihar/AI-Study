@@ -18,7 +18,15 @@
 
 ---
 
-## 2. Dimension-by-Dimension Assessment
+## 2. The Business Problem
+
+StockSight's customer — a national omnichannel retailer with 500+ stores and 50,000 active products — is bleeding money from two sides of the same coin. On one side, they run out of popular items 8% of the time, handing $40 million a year in sales to competitors. On the other, they over-order 12% of their inventory, sinking $25 million annually into carrying costs, storage fees, and fire-sale markdowns. The root cause isn't a lack of effort. Category managers work the numbers in Excel, apply rolling averages, and lean on hard-won intuition. But with 50,000 products, seasonal swings, promotions, weather shifts, and supplier hiccups, the math simply outruns a spreadsheet. The result is a slow-moving, fragmented guess — and $65 million in avoidable losses every year.
+
+StockSight replaces that guess with an AI forecasting engine purpose-built for the complexity of modern retail. Instead of one person wrestling rows in Excel, it ingests every signal that drives demand — point-of-sale transactions, inventory levels, promotions, weather, and competitor pricing — and learns how they interact. The system forecasts demand for every SKU in every store, from tomorrow to next month, and updates those forecasts as new data arrives. Inventory planners get a dashboard with clear, trustworthy numbers instead of hunches. The goal is to cut stockouts from 8% to 2-3% and overstock from 12% to 4-5%, recovering the vast majority of that $65 million — not by guessing harder, but by letting the machine do what machines do best: see patterns in noise at a scale no human can match.
+
+---
+
+## 3. Dimension-by-Dimension Assessment
 
 ### 2.1 Data Maturity — Assessment: L4 (Optimized)
 
