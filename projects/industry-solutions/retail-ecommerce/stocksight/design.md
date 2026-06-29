@@ -399,6 +399,67 @@ SELECT create_hypertable('accuracy_records', 'evaluation_date', chunk_time_inter
 | `forecast_worker` | 2 processes | CPU, 16GB | Run Prophet + foundation model + ensemble | Daily (04:00) |
 | `accuracy_worker` | 1 process | CPU, 4GB | Compute accuracy metrics against actuals | Daily (T+1, 06:00) |
 
+### Celery (Task Queue)
+
+Celery is a distributed task queue that executes asynchronous work outside the HTTP request-response cycle. It is the backbone of StockSight's data ingestion and forecast pipeline — every task (ingesting POS data, fetching weather, running the model, computing accuracy) is dispatched as a Celery task and executed by a pool of workers.
+
+**Why Celery over alternatives**:
+- **Airflow**: Better for complex DAGs with backfill, but adds a database-backed scheduler and minute-level latency. StockSight's pipeline is a linear daily chain — Celery's sub-second push model is simpler and sufficient.
+- **Temporal**: Excellent for saga orchestration and automatic retries, but requires a separate gRPC + Go binary. Celery + RabbitMQ keeps the stack Python-only with lower ops overhead.
+- **Threading/background tasks**: Block the event loop and don't survive process restarts. Celery workers are independent processes that can be scaled, failed, and restarted independently.
+
+**Celery Beat Schedule Configuration**
+
+Schedules are defined in code via Celery Beat's `beat_schedule` dict and version-controlled alongside the application:
+
+```python
+# workers/celery_app.py
+from celery import Celery
+from celery.schedules import crontab
+
+app = Celery("stocksight")
+app.config_from_object("app.config")
+
+app.conf.beat_schedule = {
+    "sync-erp-inventory": {
+        "task": "workers.erp_worker.sync_erp_inventory",
+        "schedule": crontab(minute="0", hour="*/4"),
+        "options": {"queue": "erp", "expires": 600},
+    },
+    "fetch-weather": {
+        "task": "workers.weather_worker.fetch_weather_forecast",
+        "schedule": crontab(minute="30", hour="*/6"),
+        "options": {"queue": "external", "expires": 1800},
+    },
+    "scrape-competitor": {
+        "task": "workers.competitor_worker.scrape_competitor_pricing",
+        "schedule": crontab(minute="0", hour="6"),
+        "options": {"queue": "external", "expires": 3600},
+    },
+    "engineer-features": {
+        "task": "workers.feature_worker.engineer_features",
+        "schedule": crontab(minute="0", hour="2"),
+        "options": {"queue": "feature", "expires": 3600},
+    },
+    "generate-forecast": {
+        "task": "workers.forecast_worker.generate_forecast",
+        "schedule": crontab(minute="0", hour="4"),
+        "options": {"queue": "forecast", "expires": 1800},
+    },
+    "compute-accuracy": {
+        "task": "workers.accuracy_worker.compute_accuracy",
+        "schedule": crontab(minute="0", hour="6"),
+        "options": {"queue": "accuracy", "expires": 3600},
+    },
+}
+```
+
+Each task is routed to a **named queue** (`erp`, `external`, `feature`, `forecast`, `accuracy`) so worker processes can be scaled independently per workload. The `expires` option drops stale tasks if the worker is backlogged — a stale forecast run is worse than no forecast run.
+
+The `pos_worker` is not in the beat schedule — it runs as a long-lived consumer on the POS event stream (Kafka), not on a timer.
+
+**How it runs**: A `celery beat` container pushes tasks to RabbitMQ at the configured times. Worker containers pull from their respective queues. This separation means each worker can be scaled, updated, or failed independently without affecting the others.
+
 ### Feature Engineering
 
 The feature library produces ~40 features per SKU-store-day:
