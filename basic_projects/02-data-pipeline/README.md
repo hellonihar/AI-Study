@@ -86,3 +86,55 @@ S3 (raw CSV) ──► download ──► Pandas DataFrame ──► cleaning �
 - The concept of a feature store and why training/serving feature consistency matters
 - Data versioning with DVC to tie every experiment to an immutable dataset
 - Writing idempotent ETL — running it twice should not duplicate rows (use upserts or run IDs)
+
+## Next Steps
+
+Once the basic pipeline is solid, here are natural progressions to level up, roughly in order of increasing complexity:
+
+### 1. Orchestration & Scheduling
+- Migrate from a single script to **Apache Airflow / Prefect / Dagster** with DAGs
+- Add scheduling (daily/hourly), retries, alerting (Slack/PagerDuty)
+- Incremental loads instead of full reloads
+
+### 2. Real Feature Store
+- Replace SQLite with **Feast** or **Tecton**
+- Serve features for both training and online inference (low-latency)
+- Point-in-time correct joins for training datasets
+
+### 3. Stream Processing
+- Add a **Kafka / Kinesis** streaming path alongside the batch path
+- Use **Spark Structured Streaming** or **Flink** for real-time feature computation
+- Lambda / Kappa architecture
+
+### 4. Data Quality & Monitoring
+- Great Expectations suite — automate expectations, run as a CI step
+- Add **data drift / feature drift detection** (whylogs, Evidently AI)
+- Automated alerting when quality checks fail
+
+### 5. Multi-environment & CI/CD
+- Separate dev / staging / prod environments
+- **dbt** for transformation testing and lineage
+- GitHub Actions CI/CD pipeline for testing ETL changes
+
+### 6. Schema Evolution & Registry
+- **Schema registry** (Avro / Protobuf) for managing schema changes
+- Feature registry with ownership, tags, descriptions
+- Lineage tracking (OpenLineage / Marquez / DataHub)
+
+### 7. Distributed Processing
+- Handle larger-than-memory datasets with **Spark** (PySpark) or **Dask**
+- Partitioned reads, distributed joins, shuffle optimization
+
+### 8. Advanced Feature Engineering
+- Time-series windows (expanding windows, custom aggregations)
+- Embedding generation (via LLM or embedding model)
+- Categorical encoding with frequent-item dictionaries
+- Cross-feature interactions
+
+### 9. Data Lake / Lakehouse Integration
+- Write to **Delta Lake** / **Iceberg** / **Hudi** for ACID transactions on data lakes
+- Use **Trino** or **Athena** for querying
+
+### 10. Observability & Lineage
+- Full data lineage (end-to-end: raw → transformed → feature → model prediction)
+- Metrics dashboard (data freshness, row counts, feature distributions over time)
